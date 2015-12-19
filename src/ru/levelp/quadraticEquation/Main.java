@@ -4,10 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Arc2D;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Main implements ActionListener {
 
@@ -63,7 +59,7 @@ public class Main implements ActionListener {
     private void addButtonsAndTextFields() {
 
         //создать кнопки
-        jbtnAdd = new JButton("Сложить");
+        jbtnAdd = new JButton("Подсчет");
         jbtnReset = new JButton("Сброс");
         jbtnExit = new JButton("Выход");
 
@@ -101,7 +97,7 @@ public class Main implements ActionListener {
     }
 
     private static void setGUI() {
-        //создать экземпляр класса Calculator
+        //создать экземпляр класса Main
         Main gui = new Main();
     }
 
@@ -126,7 +122,8 @@ public class Main implements ActionListener {
     // выход
     private void exit() {
         // показать пользователю сообщение для подтверждения
-        int reponse = JOptionPane.showConfirmDialog(null, "Вы действительно хотите закрыть приложение?", "Подтверждение",
+        int reponse = JOptionPane.showConfirmDialog(null,
+                "Может еще посчитаем?", "Подтверждение",
                 JOptionPane.YES_NO_OPTION);
 
         //если пользователь нажал ДА
@@ -145,7 +142,6 @@ public class Main implements ActionListener {
 
         double num1, num2, num3;
 
-
         //проверить введенные данные
         if ((isValidInput(jtxtNum1, "Число 1")) && (isValidInput(jtxtNum2, "Число 2")) &&
                 (isValidInput(jtxtNum3, "Число 3"))) {
@@ -160,13 +156,13 @@ public class Main implements ActionListener {
                 jlblOut.setText("Дискреминант меньше нуля. Корней нет.");
             } else if (disk == 0) {
                 double x = -num2 / (2 * num1);
-                String s = String.format("%g =%f", x);
+                String s = String.format("Один корень x= %.2f", x);
                 jlblOut.setText(s);
             } else {
                 double x3 = Math.sqrt(disk);
                 double x1 = (-num2 + x3) / (2 * num1);
                 double x2 = (-num2 - x3) / (2 * num1);
-                String s = String.format("%g %g =%f", x1, x2);
+                String s = String.format("x1= %.2f   x2= %.2f ", x1, x2);
                 jlblOut.setText(s);
             }
         }
@@ -198,7 +194,8 @@ public class Main implements ActionListener {
             } catch (NumberFormatException e) {
 
                 //предупреждение - неверный формат числа
-                JOptionPane.showMessageDialog(window, "Вы должны ввести целое число!", "Ошибка", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(window,
+                        "Вы должны ввести число, а не текст!", "Ошибка", JOptionPane.WARNING_MESSAGE);
 
                 //расположить курсор в текстово окне, чтобы пользователь еще раз ввел число
                 jtxt.requestFocus();
