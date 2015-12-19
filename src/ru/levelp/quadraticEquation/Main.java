@@ -1,5 +1,7 @@
 package ru.levelp.quadraticEquation;
 
+import com.sun.org.apache.bcel.internal.generic.GOTO;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
         try {
             System.out.println("введите число а:\t");
             int a = Integer.parseInt(reader.readLine());
@@ -29,8 +32,10 @@ public class Main {
                 double x2 = (-b - x3) / (2 * a);
                 System.out.printf("x1= %g\nx2= %g\n", x1, x2);
             }
+        } catch (NumberFormatException e) {
+            System.err.println("Вводить надо целое натуральное число!");
+
         } catch (IOException e) {
-            System.out.println("Вводить надо целое натуральное число!");
         }
 
     }
