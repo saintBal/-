@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="simpleQuadraticWquation">
+    <output-path>$PROJECT_DIR$/out/artifacts/simpleQuadraticWquation</output-path>
+    <root id="archive" name="simpleQuadraticWquation.jar">
+      <element id="module-output" name="quadraticEquation" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
