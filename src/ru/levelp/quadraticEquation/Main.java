@@ -123,7 +123,7 @@ public class Main implements ActionListener {
     private void exit() {
         // показать пользователю сообщение для подтверждения
         int reponse = JOptionPane.showConfirmDialog(null,
-                "Может еще посчитаем?", "Подтверждение",
+                "Надоело решать?", "Подтверждение",
                 JOptionPane.YES_NO_OPTION);
 
         //если пользователь нажал ДА
@@ -153,7 +153,7 @@ public class Main implements ActionListener {
             //сделать расчет
             double disk = Math.pow(num2, 2) - 4 * num1 * num3;
             if (disk < 0) {
-                jlblOut.setText("Дискреминант меньше нуля. Корней нет.");
+                jlblOut.setText("Дискриминант меньше нуля. Корней нет.");
             } else if (disk == 0) {
                 double x = -num2 / (2 * num1);
                 String s = String.format("Один корень x= %.2f", x);
